@@ -1,0 +1,10 @@
+model: DeepSeek V4 Pro
+model_version_or_entry: DeepSeek V4 Pro
+date: 2026-06-04
+prompt_version: v0.1
+mother_topic: M0｜第 0 期外显入口
+one_shot: true
+context_condition: 新会话
+notion_run_page: "https://app.notion.com/p/464ae793c976438caeac57f35d3db0b3"
+status: pending
+notes: 第一批运行队列：地基 / 冲突识别 / 约束探针。

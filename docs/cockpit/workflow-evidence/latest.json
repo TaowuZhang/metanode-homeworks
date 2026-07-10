@@ -1,0 +1,68 @@
+{
+  "schema_version": "0.1",
+  "subject": "getnote-mirror",
+  "workflow": "sync-getnote.yml",
+  "evidence_kind": "real_external_read",
+  "state": "healthy-current",
+  "severity": "quiet",
+  "interpretation": "The newest real attempt is also the last accepted healthy mirror.",
+  "last_attempt": {
+    "id": "28622300627",
+    "name": "Sync GetNote",
+    "event": "schedule",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "00ed45f9bbe85a48a8f3e8f1b63255be65f7a4ba",
+    "created_at": "2026-07-02T21:20:14Z",
+    "updated_at": "2026-07-02T21:20:36Z",
+    "run_started_at": "2026-07-02T21:20:14Z",
+    "html_url": "https://github.com/dongxi-heji/worang/actions/runs/28622300627"
+  },
+  "last_healthy": {
+    "schema_version": "0.1",
+    "source": "getnote",
+    "evidence_kind": "real_external_read",
+    "generated_at": "2026-07-02T21:20:29.435Z",
+    "acceptance_status": "healthy",
+    "generator_health_status": "degraded",
+    "run_context": {
+      "provider": "github_actions",
+      "workflow": "Sync GetNote",
+      "event_name": "schedule",
+      "is_schedule": true,
+      "is_manual": false,
+      "run_id": "28622300627",
+      "run_attempt": "1",
+      "actor": "TaowuZhang",
+      "ref": "refs/heads/main",
+      "ref_name": "main",
+      "sha": "00ed45f9bbe85a48a8f3e8f1b63255be65f7a4ba",
+      "repository": "dongxi-heji/worang",
+      "run_url": "https://github.com/dongxi-heji/worang/actions/runs/28622300627"
+    },
+    "counts": {
+      "requested_limit": 20,
+      "listed_count": 20,
+      "effective_limit": 20,
+      "upstream_limit_observed": false,
+      "written_count": 20,
+      "skipped_count": 0,
+      "manifest_row_count": 20,
+      "recent_md_count": 20,
+      "search_row_count": 20
+    },
+    "hard_failures": [],
+    "advisories": [
+      {
+        "type": "sentinel-outside-window",
+        "name": "dedao_ref_story_of_your_life",
+        "id": "1909926264522813232",
+        "reason": "A fixed note may leave the rolling recent window; absence is not a mirror failure."
+      }
+    ],
+    "policy": {
+      "healthy": "Commit the deterministic mirror to main; this becomes the new last healthy evidence.",
+      "degraded": "Do not update main; retain the previous last healthy mirror and publish this attempt only as short-lived diagnostic evidence."
+    }
+  }
+}

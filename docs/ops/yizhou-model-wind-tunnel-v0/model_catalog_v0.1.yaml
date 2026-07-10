@@ -1,0 +1,25 @@
+version: v0.1
+source: Notion model picker screenshot 2026-06-04 14:48 Asia/Shanghai
+naming_convention:
+  ke: 克 is the user's name for all Notion AI instances, not a model name and not GPT-specific.
+  model_recording: Record concrete model names and versions exactly as shown in the model picker.
+models:
+  claude:
+    - Sonnet 4.6
+    - Opus 4.7
+    - Opus 4.8
+  gemini:
+    - Gemini 3.1 Pro
+  openai:
+    - GPT-5.2
+    - GPT-5.4
+    - GPT-5.5
+  grok:
+    - Grok 4.3
+    - Grok Build 0.1
+  open_source_hosted_us:
+    - Kimi K2.6
+    - DeepSeek V4 Pro
+notes:
+  - Model names and versions should be recorded exactly as shown in the picker.
+  - First-batch v0 run queue uses: GPT-5.5, Opus 4.7, Gemini 3.1 Pro, Kimi K2.6, DeepSeek V4 Pro.

@@ -1,0 +1,89 @@
+.DS_Store
+._*
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.mp4
+*.mp3
+*.wav
+*.m4a
+*.tmp
+*.bak
+
+# 字体文件（太大，从原始来源下载）
+*.ttf
+*.ttc
+*.otf
+*.woff
+*.woff2
+
+# 大型二进制资源
+资源/印象/
+
+# Local backup files
+*.bak-*.csv
+*.bak-*.md
+
+# Rust build output
+target/
+
+# Go homework local artifacts
+.gocache/
+.gomodcache/
+*.db
+*.db-shm
+*.db-wal
+tmp/
+dist/
+coverage.out
+# generated local audit reports
+reports/
+
+# Claude Code (only ignore secrets and ephemeral state)
+.claude/settings.local.json
+.claude/plans/
+
+# Private Notion exports
+私人与共享/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.excrete-cursor
+.excrete-cursor.tmp-*
+ai-browse/out/
+cookies/
+
+# Local Notion terminal bridge state
+.watch.mjs.lock
+.watch/
+pulled-from-notion.md
+test-push.md
+成为/沉积/
+成为/消化/
+
+# Local Steam probe outputs
+资源/_steam/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# CFnew local deployment artifacts
+*.uuid
+.secrets/
+.cfnew-work/
+wrangler.toml
+worker.js
+worker.*.js
+cfnew-current.js
+cfnew-*.js
+
+# WQB local-private expression drafts (never commit full alpha bodies)
+local/private/
+runs/wqb-private/
+*.private.json
+*.private.ndjson

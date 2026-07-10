@@ -1,0 +1,119 @@
+{
+  "version": "account-phase-lock-map-v0",
+  "updated": "2026-06-13",
+  "principle": "GitHub 主星盘 is the action-bearing board; Notion is the live workspace and ignition lens.",
+  "accounts": [
+    {
+      "name": "WQB 六月主题矿脉侦察",
+      "notion": ["WQB 六月主题矿脉侦察 v0", "推进 WQB"],
+      "githubIssue": 192,
+      "status": "active",
+      "relation": "canonical"
+    },
+    {
+      "name": "题库工程",
+      "notion": ["题库工程：自考会计题库资料源", "研 · 自考基础会计与成本会计题库资料源 v0"],
+      "githubIssue": 203,
+      "status": "active",
+      "relation": "canonical"
+    },
+    {
+      "name": "AI 工作流落地服务台",
+      "notion": ["AI 工作流落地服务台 v0", "落地服务台"],
+      "githubIssue": 204,
+      "status": "active",
+      "relation": "canonical"
+    },
+    {
+      "name": "Eagle 视觉索引",
+      "notion": ["Eagle 视觉索引字段规范 v0", "本地字体在哪｜Mac 本地字体索引 v0"],
+      "githubIssue": 207,
+      "status": "active",
+      "relation": "canonical"
+    },
+    {
+      "name": "外显 / 推·自媒体",
+      "notion": ["外显事实源与展示面板 v0", "外显：推·自媒体（禾集 0→1，含外显材料素材侧）"],
+      "githubIssue": 208,
+      "status": "active",
+      "relation": "canonical"
+    },
+    {
+      "name": "研·CC源码碰法",
+      "notion": [],
+      "githubIssue": 209,
+      "status": "active_or_completed_conflict",
+      "relation": "canonical",
+      "note": "CSV says completed; issue remains central account. Needs backend ledger reconciliation."
+    },
+    {
+      "name": "建·技术栈路线",
+      "notion": ["建·技术栈路线（roadmap.sh 补短板）"],
+      "githubIssue": 210,
+      "status": "active",
+      "relation": "canonical"
+    },
+    {
+      "name": "建·个人页面",
+      "notion": ["建·个人页面（坐标库替代简历）", "职业主页与父母行动面板 v0"],
+      "githubIssue": 211,
+      "status": "active",
+      "relation": "canonical"
+    },
+    {
+      "name": "学习线集群",
+      "notion": ["学习线集群（七条学·线一户总管）"],
+      "githubIssue": 212,
+      "status": "active",
+      "relation": "canonical"
+    },
+    {
+      "name": "治理：底谱标准件施工",
+      "notion": ["出入场底谱风险审计待办总账（A1-M39）"],
+      "githubIssue": 213,
+      "status": "active",
+      "relation": "canonical"
+    },
+    {
+      "name": "建·苗圃外伸",
+      "notion": ["建·苗圃外伸"],
+      "githubIssue": 208,
+      "status": "candidate",
+      "relation": "merged_candidate",
+      "decision": "Temporarily belongs to externalization issue #208 until evening judgment decides whether to split."
+    },
+    {
+      "name": "探·合约预扫描产品化",
+      "notion": ["探·合约预扫描产品化"],
+      "githubIssue": 204,
+      "status": "candidate",
+      "relation": "merged_candidate",
+      "decision": "Temporarily belongs to AI workflow service desk issue #204 until evening judgment decides whether to split."
+    },
+    {
+      "name": "研·行业招聘",
+      "notion": ["研·行业招聘（网安/量化/设计接入路径）"],
+      "githubIssue": 210,
+      "status": "evidence",
+      "relation": "evidence_for",
+      "alsoFor": [211],
+      "decision": "Evidence for tech stack route and personal page, not an independent frontstage account for now."
+    },
+    {
+      "name": "论文审阅项目",
+      "notion": ["论文审阅项目"],
+      "githubIssue": null,
+      "status": "sediment",
+      "relation": "no_active_account",
+      "decision": "Historical / research sediment. Reopen only after evening judgment."
+    },
+    {
+      "name": "建·轻耕",
+      "notion": ["建·轻耕（翻耕轻量化后续）"],
+      "githubIssue": null,
+      "status": "completed",
+      "relation": "no_active_account",
+      "decision": "Completed. If clean source conflicts, fix backend ledger rather than reopening."
+    }
+  ]
+}

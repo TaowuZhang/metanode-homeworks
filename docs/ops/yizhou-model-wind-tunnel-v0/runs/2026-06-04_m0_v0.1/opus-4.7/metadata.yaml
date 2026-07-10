@@ -1,0 +1,10 @@
+model: Opus 4.7
+model_version_or_entry: Opus 4.7
+date: 2026-06-04
+prompt_version: v0.1
+mother_topic: M0｜第 0 期外显入口
+one_shot: true
+context_condition: 新会话
+notion_run_page: "https://app.notion.com/p/2e7d49c352304170bf2af125f0019575"
+status: pending
+notes: 第一批运行队列：边界 / 收束 / 强度探针。

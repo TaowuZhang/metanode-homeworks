@@ -1,0 +1,10 @@
+model: Gemini 3.1 Pro
+model_version_or_entry: Gemini 3.1 Pro
+date: 2026-06-04
+prompt_version: v0.1
+mother_topic: M0｜第 0 期外显入口
+one_shot: true
+context_condition: 新会话
+notion_run_page: "https://app.notion.com/p/54575764fb82439c8f4dd851ae1ef09c"
+status: pending
+notes: 第一批运行队列：闻味 / 主流引力 / 变味探针。

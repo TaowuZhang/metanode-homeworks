@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dongxi-heji/worang/blob/main/docs/ops/worang-index/index.schema.json",
+  "title": "Worang AI cold-start index",
+  "type": "object",
+  "required": ["version", "repo", "generated_at", "git_ref", "summary", "entries"],
+  "properties": {
+    "version": { "type": "string" },
+    "repo": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "git_ref": {
+      "type": "string",
+      "description": "Source ref observed when the indexed semantic content was generated or last changed; unchanged rebuilds preserve it. It is not the commit that contains the generated index."
+    },
+    "root_manifest": {
+      "type": "object",
+      "required": ["path", "status"],
+      "properties": {
+        "path": { "type": "string" },
+        "status": { "enum": ["matched", "drifted", "missing", "unchecked"] },
+        "warnings": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "link_manifest": {
+      "type": "object",
+      "properties": {
+        "checked": { "type": "boolean" },
+        "broken_count": { "type": "number" },
+        "auto_fixable_count": { "type": "number" },
+        "manual_review_count": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "object",
+      "required": ["files", "dirs", "by_layer", "warnings"],
+      "properties": {
+        "files": { "type": "number" },
+        "dirs": { "type": "number" },
+        "by_layer": { "type": "object", "additionalProperties": { "type": "number" } },
+        "warnings": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "kind", "layer", "entry_role", "ai_use", "source_status", "maintenance", "signals", "warnings"],
+        "properties": {
+          "path": { "type": "string" },
+          "kind": { "enum": ["file", "dir"] },
+          "layer": { "enum": ["root", "becoming", "domain", "resource", "skill", "wo", "ops", "code", "web", "worker", "config", "unknown"] },
+          "entry_role": { "enum": ["cold_start", "first_jump", "source_of_truth", "generated", "archive", "implementation", "support", "unknown"] },
+          "ai_use": { "type": "string" },
+          "source_status": { "enum": ["primary", "secondary", "historical", "generated", "unknown"] },
+          "maintenance": { "enum": ["manual", "generated", "script_checked", "workflow_checked", "workflow_updated", "external"] },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["href", "status"],
+              "properties": {
+                "href": { "type": "string" },
+                "status": { "enum": ["ok", "broken", "external", "notion", "anchor", "manual_review", "auto_fixable", "unchecked"] },
+                "resolved_path": { "type": "string" },
+                "warning": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "signals": { "type": "array", "items": { "type": "string" } },
+          "display_scope": { "enum": ["root_essential", "first_jump", "machine_only", "hidden_from_md"] },
+          "size_bytes": { "type": "number" },
+          "sha": { "type": "string" },
+          "warnings": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
