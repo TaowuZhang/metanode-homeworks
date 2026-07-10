@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strings"
 
-	"metanode-go-backend-homeworks/internal/blog/utils"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/utils"
 
 	"github.com/gin-gonic/gin"
 )

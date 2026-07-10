@@ -3,11 +3,11 @@ package routes
 import (
 	"time"
 
-	"metanode-go-backend-homeworks/internal/blog/controllers"
-	"metanode-go-backend-homeworks/internal/blog/middleware"
-	"metanode-go-backend-homeworks/internal/blog/repository"
-	"metanode-go-backend-homeworks/internal/blog/services"
-	"metanode-go-backend-homeworks/internal/blog/utils"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/controllers"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/middleware"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/repository"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/services"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/utils"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"

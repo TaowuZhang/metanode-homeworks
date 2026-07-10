@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"metanode-go-backend-homeworks/internal/homework02"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/homework02"
 )
 
 func main() {

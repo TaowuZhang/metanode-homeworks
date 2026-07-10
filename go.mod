@@ -1,4 +1,4 @@
-module metanode-go-backend-homeworks
+module github.com/TaowuZhang/metanode-go-homeworks
 
 go 1.26.4
 

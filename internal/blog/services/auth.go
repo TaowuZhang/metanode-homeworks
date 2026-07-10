@@ -4,9 +4,9 @@ import (
 	"errors"
 	"time"
 
-	"metanode-go-backend-homeworks/internal/blog/models"
-	"metanode-go-backend-homeworks/internal/blog/repository"
-	"metanode-go-backend-homeworks/internal/blog/utils"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/models"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/repository"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/utils"
 )
 
 type AuthService struct {

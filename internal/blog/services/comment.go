@@ -3,8 +3,8 @@ package services
 import (
 	"errors"
 
-	"metanode-go-backend-homeworks/internal/blog/models"
-	"metanode-go-backend-homeworks/internal/blog/repository"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/models"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/repository"
 )
 
 type CommentService struct {
