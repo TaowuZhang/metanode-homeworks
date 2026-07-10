@@ -3,7 +3,7 @@ package services
 import (
 	"time"
 
-	"metanode-go-backend-homeworks/internal/blog/repository"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/repository"
 )
 
 type Services struct {

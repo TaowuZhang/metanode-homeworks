@@ -3,9 +3,9 @@ package controllers
 import (
 	"net/http"
 
-	"metanode-go-backend-homeworks/internal/blog/middleware"
-	"metanode-go-backend-homeworks/internal/blog/services"
-	"metanode-go-backend-homeworks/internal/blog/utils"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/middleware"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/services"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/utils"
 
 	"github.com/gin-gonic/gin"
 )

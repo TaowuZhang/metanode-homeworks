@@ -1,6 +1,0 @@
-title,fact_source,steam_appid,steam_owned,steam_playtime_total_min,steam_last_played_at,external_sources,experience_source,play_sources,game_form,finite_completion_status,ongoing_play_status,value_usage,status_confirmed,decision_note
-Cities: Skylines,steam_review_queue_v0,255710,yes,26440,2024-12-29,steam,steam_candidate,,,,,,no,Steam 新条目候选：owned=yes，playtime=26440min；城市模拟 / 建造经营类不按通关处理；机制研究价值待谷确认。
-Sid Meier's Civilization VI,steam_review_queue_v0,289070,yes,49950,2025-11-03,steam,steam_candidate,,,,,,no,Steam 新条目候选：owned=yes，playtime=49950min；单局有限 + 长期策略循环；不由高时长推出通关、重要性或系统沉积。
-史丹利的寓言：终级豪华版 The Stanley Parable: Ultra Deluxe,steam_probe_v0,1703340,yes,836,2022-08-03T15:11:59.000Z,douban;steam,steam_candidate,,,,,,no,Steam 匹配候选：owned=yes，playtime=836min；混合型与通关口径待谷确认。
-极乐迪斯科 Disco Elysium,steam_probe_v0,632470,yes,2145,2023-09-30T05:43:05.000Z,douban;steam,steam_candidate,,,,,,no,Steam 匹配候选：owned=yes，playtime=2145min；只补外部事实，不自动判断通关或价值。
-粘粘世界 World of Goo,manual_confirmed_v0,,,,,douban;manual,manual_confirmed,PC;iPad,有限型,主线通关,,,yes,谷补充：小时候在电脑与 iPad 玩过，并已通关；非 Steam 来源；不得映射 World of Warships 552990。

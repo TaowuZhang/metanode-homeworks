@@ -7,7 +7,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"metanode-go-backend-homeworks/internal/blog/repository"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/repository"
 
 	"github.com/gin-gonic/gin"
 )

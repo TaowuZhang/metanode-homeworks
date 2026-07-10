@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"metanode-go-backend-homeworks/internal/gormpractice"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/gormpractice"
 )
 
 func main() {

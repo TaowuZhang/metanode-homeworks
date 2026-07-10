@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"metanode-go-backend-homeworks/internal/blog/models"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/models"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"

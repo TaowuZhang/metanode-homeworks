@@ -1,7 +1,0 @@
-{
-  "deprecated": true,
-  "old_name": "project-ledger-map-v0",
-  "new_name": "account-phase-lock-map-v0",
-  "new_path": "docs/ops/account-phase-lock-map.json",
-  "note": "Compatibility pointer only. 主源已迁移到户口锁相流映射表。Project 1 / project ledger sync 旧名不再作为主源。"
-}

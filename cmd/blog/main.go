@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	"metanode-go-backend-homeworks/internal/blog/config"
-	"metanode-go-backend-homeworks/internal/blog/repository"
-	"metanode-go-backend-homeworks/internal/blog/routes"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/config"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/repository"
+	"github.com/TaowuZhang/metanode-go-homeworks/internal/blog/routes"
 )
 
 func main() {
