@@ -22,10 +22,10 @@ func main() {
 	fmt.Println("rectangle:", rect.Area(), rect.Perimeter(), "circle:", circle.Area(), circle.Perimeter())
 	employee := homework02.Employee{Person: homework02.Person{Name: "Alice", Age: 30}, EmployeeID: "E001"}
 	fmt.Println(employee.PrintInfo())
-	for v := range homework02.GenerateNumbers(3) {
+	for v := range homework02.GenerateNumbers(10) {
 		fmt.Println("channel:", v)
 	}
-	fmt.Println("buffered:", homework02.BufferedProducerConsumer(5, 2))
+	fmt.Println("buffered:", homework02.BufferedProducerConsumer(100, 10))
 	fmt.Println("mutex counter:", homework02.MutexCounter(10, 1000))
 	fmt.Println("atomic counter:", homework02.AtomicCounter(10, 1000))
 }
