@@ -34,7 +34,11 @@ func (ctl *PostController) List(c *gin.Context) {
 }
 
 func (ctl *PostController) Get(c *gin.Context) {
-	post, err := ctl.svc.Get(parseID(c, "id"))
+	id, ok := parseID(c, "id")
+	if !ok {
+		return
+	}
+	post, err := ctl.svc.Get(id)
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		utils.Error(c, http.StatusNotFound, 40404, "post not found")
 		return
@@ -61,12 +65,16 @@ func (ctl *PostController) Create(c *gin.Context) {
 }
 
 func (ctl *PostController) Update(c *gin.Context) {
+	id, ok := parseID(c, "id")
+	if !ok {
+		return
+	}
 	var req postRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
 		utils.Error(c, http.StatusBadRequest, 40000, "invalid request")
 		return
 	}
-	post, err := ctl.svc.Update(parseID(c, "id"), middleware.CurrentUserID(c), req.Title, req.Content)
+	post, err := ctl.svc.Update(id, middleware.CurrentUserID(c), req.Title, req.Content)
 	if errors.Is(err, services.ErrForbidden) {
 		utils.Error(c, http.StatusForbidden, 40301, "only author can update post")
 		return
@@ -83,7 +91,11 @@ func (ctl *PostController) Update(c *gin.Context) {
 }
 
 func (ctl *PostController) Delete(c *gin.Context) {
-	err := ctl.svc.Delete(parseID(c, "id"), middleware.CurrentUserID(c))
+	id, ok := parseID(c, "id")
+	if !ok {
+		return
+	}
+	err := ctl.svc.Delete(id, middleware.CurrentUserID(c))
 	if errors.Is(err, services.ErrForbidden) {
 		utils.Error(c, http.StatusForbidden, 40301, "only author can delete post")
 		return
@@ -99,7 +111,12 @@ func (ctl *PostController) Delete(c *gin.Context) {
 	utils.OK(c, gin.H{"deleted": true})
 }
 
-func parseID(c *gin.Context, name string) uint {
-	id, _ := strconv.ParseUint(c.Param(name), 10, 64)
-	return uint(id)
+func parseID(c *gin.Context, name string) (uint, bool) {
+	raw := c.Param(name)
+	id, err := strconv.ParseUint(raw, 10, 64)
+	if err != nil || id == 0 {
+		utils.Error(c, http.StatusBadRequest, 40002, "invalid "+name)
+		return 0, false
+	}
+	return uint(id), true
 }

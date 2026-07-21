@@ -23,7 +23,11 @@ type commentRequest struct {
 }
 
 func (ctl *CommentController) List(c *gin.Context) {
-	comments, err := ctl.svc.List(parseID(c, "id"))
+	postID, ok := parseID(c, "id")
+	if !ok {
+		return
+	}
+	comments, err := ctl.svc.List(postID)
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		utils.Error(c, http.StatusNotFound, 40404, "post not found")
 		return
@@ -36,12 +40,16 @@ func (ctl *CommentController) List(c *gin.Context) {
 }
 
 func (ctl *CommentController) Create(c *gin.Context) {
+	postID, ok := parseID(c, "id")
+	if !ok {
+		return
+	}
 	var req commentRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
 		utils.Error(c, http.StatusBadRequest, 40000, "invalid request")
 		return
 	}
-	comment, err := ctl.svc.Create(middleware.CurrentUserID(c), parseID(c, "id"), req.Content)
+	comment, err := ctl.svc.Create(middleware.CurrentUserID(c), postID, req.Content)
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		utils.Error(c, http.StatusNotFound, 40404, "post not found")
 		return
