@@ -1,52 +1,47 @@
-# MetaNodeAcademy Go 后端基础作业
+# MetaNodeAcademy 作业总仓库
 
-这是一个独立的 MetaNodeAcademy Go 后端作业仓库，覆盖 Go 基础算法、指针与并发、GORM 进阶，以及 Gin + GORM + JWT 个人博客 API。
+这是个人 MetaNodeAcademy 学习与作业的统一仓库。Go 后端基础作业与 Solidity 智能合约作业都在这里维护，后续 MetaNode 作业继续按课程/方向放入对应子目录，不再为每次作业单独创建仓库。
 
-## 作业内容总览
+## 内容总览
 
-- `internal/homework01`: 只出现一次的数字、回文数、有效括号、最长公共前缀、加一、原地删除有序数组重复项、合并区间、两数之和。
-- `internal/homework02`: 指针修改、切片指针、goroutine + WaitGroup、任务调度器、接口与组合、channel、buffered channel、Mutex 和 atomic 计数器。
-- `internal/gormpractice`: User/Post/Comment 模型、一对多关系、Preload 关联查询、评论最多文章查询、Post/Comment GORM Hook。
-- `internal/blog`: Gin + GORM + SQLite + JWT + bcrypt 博客后端，包含注册登录、profile、文章 CRUD、评论创建和查询、作者权限校验。
+### Go 后端基础
 
-## 技术栈
+现有 Go 内容保持原有目录结构：
 
-- Go 1.26
-- Gin
-- GORM + SQLite
-- github.com/golang-jwt/jwt/v5
-- golang.org/x/crypto/bcrypt
-- godotenv
-- httptest
+- `internal/homework01`：基础算法练习，包括只出现一次的数字、回文数、有效括号、最长公共前缀、加一、原地删除有序数组重复项、合并区间、两数之和。
+- `internal/homework02`：指针、切片、goroutine、WaitGroup、任务调度器、接口与组合、channel、Mutex、atomic。
+- `internal/gormpractice`：User/Post/Comment 模型、关联查询、Preload、统计查询与 GORM Hook。
+- `internal/blog`：Gin + GORM + SQLite + JWT + bcrypt 博客后端，包含注册登录、profile、文章 CRUD、评论和作者权限校验。
+- `cmd/`：各 Go 作业与博客项目的运行入口。
+- `docs/`：API、测试、实现报告与自然语言到代码的学习记录。
 
-## 目录结构
+### Solidity 智能合约基础
+
+- [`solidity/homework03`](./solidity/homework03)：MetaNode Solidity 基础二「任务3」——可升级 NFT 拍卖市场。
+  - ERC721 NFT mint / transfer / escrow；
+  - ETH 与 ERC20 跨币种竞价；
+  - Chainlink Data Feed 统一换算 USD；
+  - pull-payment 退款与拍卖结算；
+  - OpenZeppelin UUPS V1 → V2 升级；
+  - Hardhat 3 + Mocha：18/18 tests passing；
+  - 96.00% line / 96.30% statement coverage；
+  - 已完成 Sepolia 实际部署、两个 Chainlink feed 配置与 V2 升级；
+  - 真实合约地址与交易证据见 [`solidity/homework03/DEPLOYMENTS.md`](./solidity/homework03/DEPLOYMENTS.md)。
+
+## 仓库结构
 
 ```text
-cmd/homework01
-cmd/homework02
-cmd/gorm_practice
-cmd/blog
-internal/homework01
-internal/homework02
-internal/gormpractice
-internal/blog/{config,controllers,middleware,models,repository,routes,services,utils}
-docs/{API.md,TESTING.md,IMPLEMENTATION_REPORT.md,NATURAL_LANGUAGE_TO_CODE.md}
+cmd/                         # Go 可执行入口
+internal/                    # Go 作业与博客实现
+docs/                        # Go 文档与学习记录
+solidity/
+  homework03/                # Solidity NFT Auction 作业（独立 Hardhat 项目）
+.github/workflows/ci.yml     # 现有 Go CI
 ```
 
-## 环境变量
+## Go 环境与验证
 
-见 `.env.example`。博客 API 默认配置：
-
-```env
-APP_ENV=development
-SERVER_PORT=8080
-DB_DRIVER=sqlite
-DB_DSN=blog.db
-JWT_SECRET=change-me-in-local-env
-JWT_EXPIRE_HOURS=24
-```
-
-## 安装依赖与测试
+技术栈：Go 1.26、Gin、GORM + SQLite、JWT、bcrypt、godotenv、httptest。
 
 ```bash
 go mod tidy
@@ -55,7 +50,7 @@ go test ./...
 go test -race ./...
 ```
 
-## 运行演示
+运行示例：
 
 ```bash
 go run ./cmd/homework01
@@ -64,31 +59,24 @@ go run ./cmd/gorm_practice
 go run ./cmd/blog
 ```
 
-博客启动后访问：
+博客环境变量示例见仓库根目录 `.env.example`。
+
+## Solidity homework03 环境与验证
 
 ```bash
-curl http://localhost:8080/health
+cd solidity/homework03
+npm install
+npm run compile
+npm test
+npm run coverage
 ```
 
-## GitHub 提交流程
+Sepolia 部署与升级方式、测试报告和链上地址分别见：
 
-```bash
-git add .
-git commit -m "Complete MetaNode Go backend homeworks"
-git remote add origin git@github.com:TaowuZhang/metanode-go-homeworks.git
-git branch -M main
-git push -u origin main
-```
+- [`solidity/homework03/README.md`](./solidity/homework03/README.md)
+- [`solidity/homework03/TEST_REPORT.md`](./solidity/homework03/TEST_REPORT.md)
+- [`solidity/homework03/DEPLOYMENTS.md`](./solidity/homework03/DEPLOYMENTS.md)
 
-如果已安装并登录 GitHub CLI：
+## 统一维护约定
 
-```bash
-gh repo create metanode-go-homeworks --public --source=. --remote=origin --push
-```
-
-## 学习入口
-
-- `docs/NATURAL_LANGUAGE_TO_CODE.md`: 自然语言需求如何拆成 Go 代码结构。
-- `docs/API.md`: 博客 API 与 curl 示例。
-- `docs/TESTING.md`: 测试、race、手动 API 验证。
-- `docs/IMPLEMENTATION_REPORT.md`: 完成范围、能力点和验证结果。
+MetaNodeAcademy 相关学习成果以本仓库为唯一个人 GitHub 母本。后续新增作业优先在现有课程目录下继续扩展，例如 `solidity/homework04/`，避免按单次任务拆分出平行仓库。
