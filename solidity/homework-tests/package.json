@@ -1,0 +1,20 @@
+{
+  "name": "metanode-solidity-homework-01-02-tests",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "node scripts/sync-contracts.mjs",
+    "compile": "node scripts/sync-contracts.mjs && hardhat compile",
+    "test": "node scripts/sync-contracts.mjs && hardhat test"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^4.0.15",
+    "@nomicfoundation/hardhat-toolbox-mocha-ethers": "^3.0.7",
+    "@types/mocha": "^10.0.10",
+    "chai": "^6.2.2",
+    "ethers": "^6.17.0",
+    "hardhat": "^3.12.0",
+    "typescript": "~5.9.3"
+  }
+}

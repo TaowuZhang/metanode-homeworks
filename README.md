@@ -17,7 +17,9 @@
 
 ### Solidity 智能合约基础
 
-- [`solidity/homework03`](./solidity/homework03)：MetaNode Solidity 基础二「任务3」——可升级 NFT 拍卖市场。
+- [`solidity/homework01`](./solidity/homework01)：基础题 1~6。Voting、字符串反转、整数↔罗马数字、合并有序数组、二分查找。面向 Remix。
+- [`solidity/homework02`](./solidity/homework02)：讨饭合约 `BeggingContract`。donate / withdraw / getDonation，外加 Donation 事件、Top3 排行榜和时间窗。面向 Remix + Sepolia。
+- [`solidity/homework03`](./solidity/homework03)：可升级 NFT 拍卖市场。
   - ERC721 NFT mint / transfer / escrow；
   - ETH 与 ERC20 跨币种竞价；
   - Chainlink Data Feed 统一换算 USD；
@@ -27,6 +29,7 @@
   - 96.00% line / 96.30% statement coverage；
   - 已完成 Sepolia 实际部署、两个 Chainlink feed 配置与 V2 升级；
   - 真实合约地址与交易证据见 [`solidity/homework03/DEPLOYMENTS.md`](./solidity/homework03/DEPLOYMENTS.md)。
+- [`solidity/homework-tests`](./solidity/homework-tests)：作业1/2 的 Hardhat 3 本地测试，不作为作业正文提交。
 
 ## 仓库结构
 
@@ -35,7 +38,10 @@ cmd/                         # Go 可执行入口
 internal/                    # Go 作业与博客实现
 docs/                        # Go 文档与学习记录
 solidity/
-  homework03/                # Solidity NFT Auction 作业（独立 Hardhat 项目）
+  homework01/                # Solidity 基础题（Remix）
+  homework02/                # 讨饭合约（Remix + Sepolia）
+  homework03/                # NFT Auction 作业（独立 Hardhat 项目）
+  homework-tests/            # 作业1/2 本地 Hardhat 测试
 .github/workflows/ci.yml     # 现有 Go CI
 ```
 
@@ -60,6 +66,21 @@ go run ./cmd/blog
 ```
 
 博客环境变量示例见仓库根目录 `.env.example`。
+
+## Solidity homework01 / homework02
+
+作业1、作业2 的合约文件可直接复制到 Remix。本地测试：
+
+```bash
+cd solidity/homework-tests
+npm install
+npm test
+```
+
+- [`solidity/homework01/README.md`](./solidity/homework01/README.md)
+- [`solidity/homework02/README.md`](./solidity/homework02/README.md)
+
+作业2 需要在 Remix 里用 MetaMask 部署到 Sepolia，并把地址和测试交易补进 [`solidity/homework02/DEPLOYMENTS.md`](./solidity/homework02/DEPLOYMENTS.md)。
 
 ## Solidity homework03 环境与验证
 
