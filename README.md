@@ -42,7 +42,7 @@ solidity/
   homework02/                # 讨饭合约（Remix + Sepolia）
   homework03/                # NFT Auction 作业（独立 Hardhat 项目）
   homework-tests/            # 作业1/2 本地 Hardhat 测试
-.github/workflows/ci.yml     # 现有 Go CI
+.github/workflows/ci.yml     # Go + Solidity 持续验证
 ```
 
 ## Go 环境与验证
@@ -73,14 +73,14 @@ go run ./cmd/blog
 
 ```bash
 cd solidity/homework-tests
-npm install
+npm ci
 npm test
 ```
 
 - [`solidity/homework01/README.md`](./solidity/homework01/README.md)
 - [`solidity/homework02/README.md`](./solidity/homework02/README.md)
 
-作业2 需要在 Remix 里用 MetaMask 部署到 Sepolia，并把地址和测试交易补进 [`solidity/homework02/DEPLOYMENTS.md`](./solidity/homework02/DEPLOYMENTS.md)。
+作业2 已于 **2026-09-04** 在 Sepolia 完成 deploy / donate / getDonation / withdraw 验证；真实合约地址、交易、事件、余额与 RPC 回读证据见 [`solidity/homework02/DEPLOYMENTS.md`](./solidity/homework02/DEPLOYMENTS.md)。
 
 ## Solidity homework03 环境与验证
 
@@ -91,6 +91,8 @@ npm run compile
 npm test
 npm run coverage
 ```
+
+GitHub Actions 会持续验证 Go、Solidity homework01/02，以及 Solidity homework03 的编译与测试。
 
 Sepolia 部署与升级方式、测试报告和链上地址分别见：
 

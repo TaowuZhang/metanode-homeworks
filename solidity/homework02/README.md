@@ -19,17 +19,17 @@
 
 时间窗默认关闭，Remix / 本地测试不用先设时间。
 
-## Remix 部署与测试（作业要求的方式）
+## Remix 部署与测试（复现方式）
 
 1. 打开 https://remix.ethereum.org
 2. 复制 `BeggingContract.sol`
 3. 编译器 `0.8.28`，Compile
 4. Environment 改成 `Injected Provider - MetaMask`，网络切到 **Sepolia**
 5. Deploy。记下合约地址
-6. 在 Remix 里用另一个账户调用 `donate`，value 填 `0.001 ether`
-7. `getDonation(你的地址)` 应等于刚捐的数量
+6. 若要复现独立 donor 行为，可在 Remix 里用另一个账户调用 `donate`，value 填 `0.001 ether`
+7. `getDonation(捐赠地址)` 应等于刚捐的数量
 8. 切回 owner 账户调用 `withdraw`，合约余额应变 0
-9. 到 Sepolia Etherscan 打开合约地址，截 `donate` / `withdraw` 交易
+9. 到 Sepolia Etherscan 打开合约地址，核对 `donate` / `withdraw` 交易
 
 Goerli 已停用，用 Sepolia。
 
@@ -37,10 +37,12 @@ Goerli 已停用，用 Sepolia。
 
 ```bash
 cd solidity/homework-tests
-npm install
+npm ci
 npm test
 ```
 
-## 测试网地址
+## Sepolia 完成状态
 
-部署成功后写在 [DEPLOYMENTS.md](./DEPLOYMENTS.md)。若本次环境没有 Sepolia 私钥，请用上面的 Remix + MetaMask 步骤自己部署，再把地址补进该文件。
+已于 **2026-09-04** 使用 Remix + MetaMask 在 Sepolia 完成部署，并完成 `donate`、`getDonation`、`withdraw` 的链上验证。真实合约地址、交易哈希、事件、余额和 RPC 回读证据均记录在 [DEPLOYMENTS.md](./DEPLOYMENTS.md)。
+
+本次真实 Sepolia 演示中的 deploy / donate / withdraw 使用同一测试账户；这份链上记录按实际情况保留，不补造第二个 donor 交易。独立非-owner donor 的行为由本地 Hardhat 测试覆盖：`donorA` 可成功调用 `donate`，因此“任何地址可捐赠”的功能已由独立账户测试验证。

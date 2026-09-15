@@ -44,3 +44,48 @@ jobs:
 
       - name: Run race tests
         run: go test -race ./...
+
+  solidity-homework01-02:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: solidity/homework-tests
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: solidity/homework-tests/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run homework01/02 tests
+        run: npm test
+
+  solidity-homework03:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: solidity/homework03
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Compile homework03
+        run: npm run compile
+
+      - name: Run homework03 tests
+        run: npm test

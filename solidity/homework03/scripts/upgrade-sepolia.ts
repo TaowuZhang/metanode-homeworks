@@ -14,9 +14,14 @@ async function main() {
   const upgradesApi = await upgrades(hre, connection);
 
   const AuctionV2 = await ethers.getContractFactory("NFTAuctionV2");
-  const upgraded = await upgradesApi.upgradeProxy(proxyAddress, AuctionV2, { kind: "uups" });
+  const upgraded = await upgradesApi.upgradeProxy(proxyAddress, AuctionV2, {
+    kind: "uups",
+    call: {
+      fn: "setMinimumBidIncrementBps",
+      args: [minimumBidIncrementBps],
+    },
+  });
   await upgraded.waitForDeployment();
-  await (await upgraded.setMinimumBidIncrementBps(minimumBidIncrementBps)).wait();
 
   const implementationAddress = await upgradesApi.erc1967.getImplementationAddress(proxyAddress);
 

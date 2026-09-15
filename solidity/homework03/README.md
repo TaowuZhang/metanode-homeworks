@@ -172,6 +172,8 @@ npm run upgrade:sepolia
 
 `500` 表示最低加价 5%。升级由 proxy owner 授权。
 
+升级脚本通过 OpenZeppelin Hardhat Upgrades 的 `call` option 编码 `setMinimumBidIncrementBps(MIN_BID_INCREMENT_BPS)`，因此 implementation 升级与最小加价配置会在同一次 UUPS upgrade-and-call transaction 中执行。这与 `DEPLOYMENTS.md` 中真实 Sepolia `upgradeToAndCall` 升级记录一致；这里只修正可复现脚本与既有链上事实的一致性，不表示重新发生了部署或升级交易。
+
 ## 安全与边界
 
 - 所有资金路径使用 `nonReentrant`；当前 Sepolia / Hardhat Cancun 环境采用 OpenZeppelin `ReentrancyGuardTransient`。
