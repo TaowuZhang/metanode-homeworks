@@ -1,5 +1,7 @@
 # Backend homework05 — Go Ethereum / Sepolia
 
+真实 Sepolia 链上验证记录见 [`LIVE_VERIFICATION.md`](./LIVE_VERIFICATION.md)。该记录只包含公开链上证据，不包含私钥或 RPC 密钥。
+
 ## 作业内容对应
 
 ### 1. Ethereum RPC
@@ -87,6 +89,7 @@ abigen \
 backend/homework05/
 ├── .env.example
 ├── README.md
+├── LIVE_VERIFICATION.md
 ├── go.mod
 ├── bindings/
 │   ├── counter.go
