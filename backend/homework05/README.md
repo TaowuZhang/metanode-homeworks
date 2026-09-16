@@ -75,6 +75,7 @@ abigen \
   --abi contracts/Counter.abi \
   --bin contracts/Counter.bin \
   --pkg bindings \
+  --type Counter \
   --out bindings/counter.go
 ```
 
