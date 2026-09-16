@@ -12,7 +12,8 @@
 - `internal/homework02`：指针、切片、goroutine、WaitGroup、任务调度器、接口与组合、channel、Mutex、atomic。
 - `internal/gormpractice`：User/Post/Comment 模型、关联查询、Preload、统计查询与 GORM Hook。
 - `internal/blog`：Gin + GORM + SQLite + JWT + bcrypt 博客后端，包含注册登录、profile、文章 CRUD、评论和作者权限校验。
-- `cmd/`：各 Go 作业与博客项目的运行入口。
+- [`backend/homework05`](./backend/homework05)：Go + go-ethereum Sepolia 实战，包括区块/交易查询、ETH 转账、Solidity Counter、abigen binding、部署与合约交互。
+- `cmd/`：各 Go 基础作业与博客项目的运行入口。
 - `docs/`：API、测试、实现报告与自然语言到代码的学习记录。
 
 ### Solidity 智能合约基础
@@ -34,7 +35,9 @@
 ## 仓库结构
 
 ```text
-cmd/                         # Go 可执行入口
+backend/
+  homework05/                # Go Ethereum / Sepolia 作业（独立 Go module）
+cmd/                         # Go 基础作业可执行入口
 internal/                    # Go 作业与博客实现
 docs/                        # Go 文档与学习记录
 solidity/
@@ -42,7 +45,7 @@ solidity/
   homework02/                # 讨饭合约（Remix + Sepolia）
   homework03/                # NFT Auction 作业（独立 Hardhat 项目）
   homework-tests/            # 作业1/2 本地 Hardhat 测试
-.github/workflows/ci.yml     # Go + Solidity 持续验证
+.github/workflows/ci.yml     # Go + Backend homework05 + Solidity 持续验证
 ```
 
 ## Go 环境与验证
@@ -66,6 +69,20 @@ go run ./cmd/blog
 ```
 
 博客环境变量示例见仓库根目录 `.env.example`。
+
+### Backend homework05
+
+`backend/homework05` 是独立 Go module，使用 go-ethereum 与 Sepolia：
+
+```bash
+cd backend/homework05
+go mod tidy
+go vet ./...
+go test ./...
+go build -o /tmp/metanode-homework05 ./cmd/homework05
+```
+
+使用方式和安全边界见 [`backend/homework05/README.md`](./backend/homework05/README.md)。
 
 ## Solidity homework01 / homework02
 
@@ -92,7 +109,7 @@ npm test
 npm run coverage
 ```
 
-GitHub Actions 会持续验证 Go、Solidity homework01/02，以及 Solidity homework03 的编译与测试。
+GitHub Actions 会持续验证根 Go module、`backend/homework05`、Solidity homework01/02，以及 Solidity homework03 的编译与测试。
 
 Sepolia 部署与升级方式、测试报告和链上地址分别见：
 

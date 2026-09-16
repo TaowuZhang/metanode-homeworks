@@ -45,6 +45,46 @@ jobs:
       - name: Run race tests
         run: go test -race ./...
 
+  backend-homework05:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend/homework05
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: backend/homework05/go.mod
+          cache: true
+          cache-dependency-path: backend/homework05/go.sum
+
+      - name: Resolve module dependencies
+        run: go mod tidy
+
+      - name: Check module files are tidy
+        run: git diff --exit-code -- go.mod go.sum
+
+      - name: Check formatting
+        run: |
+          unformatted="$(find . -name '*.go' -print0 | xargs -0 gofmt -l)"
+          if [ -n "$unformatted" ]; then
+            echo "The following files need gofmt:"
+            echo "$unformatted"
+            exit 1
+          fi
+
+      - name: Run vet
+        run: go vet ./...
+
+      - name: Run tests
+        run: go test ./...
+
+      - name: Build homework CLI
+        run: go build -o /tmp/metanode-homework05 ./cmd/homework05
+
   solidity-homework01-02:
     runs-on: ubuntu-latest
     defaults:
