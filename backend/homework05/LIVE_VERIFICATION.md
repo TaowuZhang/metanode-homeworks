@@ -120,7 +120,37 @@ number: 1
 
 这证明 generated binding 已经真实连接 Sepolia 合约、发送状态修改交易并读取修改后的链上状态。
 
-## 5. 对官方 homework05 要求的可证明状态
+## 5. Infura Sepolia endpoint
+
+官方环境要求「注册 Infura 账户，获取 Sepolia 测试网络的 API Key」。该项在 2026-09-19 由操作者本机闭合：使用现有 homework05 CLI，对 `sepolia.infura.io` 做只读 `block latest`。API Key 只留在操作者本机环境，未进入聊天、仓库或 CI 日志。
+
+CLI 命令：
+
+```bash
+go run ./cmd/homework05 block latest
+```
+
+操作者本机确认：
+
+```text
+rpc_host: sepolia.infura.io
+```
+
+CLI 输出：
+
+```text
+number: 11739627
+hash: 0x7a1d7b2bba8b061d3c894c1550dccbe55979500c3cac315addbfcac5a63246f5
+parent: 0xfd1d325b5ae9f9063e9ddc5a3536695cf9d2e250eb28d41ff9754e59f18f359f
+timestamp: 2026-09-19T19:32:00Z
+transactions: 102
+```
+
+随后通过公开 Sepolia JSON-RPC `https://ethereum-sepolia.publicnode.com` 对同一 `block hash` 做 `eth_getBlockByHash` 独立回读，区块号、hash、parent hash、UTC 时间戳和交易数量一致。Sepolia Etherscan 区块页 `11739627` 也给出相同 hash / parent hash / timestamp / 102 transactions。
+
+该结果证明 Infura Sepolia HTTPS endpoint 已经可以驱动现有 `ethclient` 查询路径。不需要为此重放转账、部署或 `increment()`。
+
+## 6. 对官方 homework05 要求的可证明状态
 
 | 官方要求 | 当前证据 |
 | --- | --- |
@@ -132,11 +162,11 @@ number: 1
 | 使用 `abigen` 生成 Go binding | `bindings/counter.go` 已生成并纳入仓库；再生成命令见 `README.md` |
 | generated binding 连接 Sepolia 合约 | 已验证，见第 3、4 节 |
 | 调用 `increment()` 并输出结果 | 已验证，链上最终 `number = 1` |
-| 注册 Infura 并获取 Sepolia API Key | **未由本仓库或本次链上验证证明**；本次独立回读使用公开 Sepolia RPC |
+| 注册 Infura 并获取 Sepolia API Key | 已验证：操作者本机通过 `sepolia.infura.io` 运行现有 CLI；公开回读见第 5 节。仓库不保存 API Key |
 
-## 6. 安全说明
+## 7. 安全说明
 
 - 不在仓库中保存测试账户私钥。
 - `.env.local` 由 Git ignore 规则排除，不属于提交内容。
 - 本文件只记录公开链上数据和可复现实验结果。
-- Infura 账户/API Key 属于外部账户状态，在实际完成并确认前不标记为已完成。
+- Infura API Key 只存在于操作者本机环境，不写入源码、聊天记录或本文件。
