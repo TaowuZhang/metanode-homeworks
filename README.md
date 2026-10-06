@@ -30,6 +30,10 @@
   - 96.00% line / 96.30% statement coverage；
   - 已完成 Sepolia 实际部署、两个 Chainlink feed 配置与 V2 升级；
   - 真实合约地址与交易证据见 [`solidity/homework03/DEPLOYMENTS.md`](./solidity/homework03/DEPLOYMENTS.md)。
+- [`solidity/homework04`](./solidity/homework04)：Uniswap V2/V3 与常用 ERC/EIP 学习文档。
+  - V2：常数乘积 AMM、滑点、三明治攻击、LP、无常损失、Core/Periphery 核心接口；
+  - V3：集中流动性、tick / `sqrtPriceX96`、tick spacing 与 fee tier；
+  - ERC/EIP：DEX、借贷、NFT、钱包和 AI + Web3 常见标准及当前状态。
 - [`solidity/homework-tests`](./solidity/homework-tests)：作业1/2 的 Hardhat 3 本地测试，不作为作业正文提交。
 
 ## 仓库结构
@@ -44,6 +48,7 @@ solidity/
   homework01/                # Solidity 基础题（Remix）
   homework02/                # 讨饭合约（Remix + Sepolia）
   homework03/                # NFT Auction 作业（独立 Hardhat 项目）
+  homework04/                # Uniswap V2/V3 + ERC/EIP 学习文档
   homework-tests/            # 作业1/2 本地 Hardhat 测试
 .github/workflows/ci.yml     # Go + Backend homework05 + Solidity 持续验证
 ```
@@ -116,6 +121,12 @@ Sepolia 部署与升级方式、测试报告和链上地址分别见：
 - [`solidity/homework03/README.md`](./solidity/homework03/README.md)
 - [`solidity/homework03/TEST_REPORT.md`](./solidity/homework03/TEST_REPORT.md)
 - [`solidity/homework03/DEPLOYMENTS.md`](./solidity/homework03/DEPLOYMENTS.md)
+
+## Solidity homework04 学习文档
+
+- [`solidity/homework04/uniswap-v2.md`](./solidity/homework04/uniswap-v2.md)：AMM、滑点、MEV、LP、无常损失与 V2 Core/Periphery 接口。
+- [`solidity/homework04/uniswap-v3.md`](./solidity/homework04/uniswap-v3.md)：集中流动性、tick、`sqrtPriceX96`、tick spacing 与 fee tier。
+- [`solidity/homework04/erc-eip-standards.md`](./solidity/homework04/erc-eip-standards.md)：常用 ERC/EIP 标准及 AI + Web3 新标准状态。
 
 ## 统一维护约定
 
